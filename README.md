@@ -39,4 +39,4 @@ https://www.kaggle.com/code/sudhanshu2198/mirorganism-detection-in-water\
 
 Jurnal (bisa disamaain dulu):
 
-https://github.com/eldntr/Detection-of-bacteria-in-water-using-Yolo-images
+[https://github.com/eldntr/Detection-of-bacteria-in-water-using-Yolo-images](https://www.mdpi.com/2076-3417/13/22/12406)
