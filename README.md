@@ -12,3 +12,7 @@ Dataset:
 
 jurnal: 
 https://www.researchgate.net/publication/366694140_YOLO-based_Deep_Learning_to_Automated_Bacterial_Colony_Counting
+
+Evaluation Score:
+- Mean Average Precision (mAP)
+
