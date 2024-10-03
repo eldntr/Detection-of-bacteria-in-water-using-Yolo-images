@@ -16,3 +16,11 @@ https://www.researchgate.net/publication/366694140_YOLO-based_Deep_Learning_to_A
 Evaluation Score:
 - Mean Average Precision (mAP)
 
+YOLO_data/
+    ├── images/
+    │   ├── train/       # Folder gambar untuk training
+    │   └── val/         # Folder gambar untuk validation
+    ├── labels/
+    │   ├── train/       # Folder label untuk training (format .txt)
+    │   └── val/         # Folder label untuk validation (format .txt)
+    └── data.yaml        # File YAML untuk konfigurasi YOLO
