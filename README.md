@@ -24,3 +24,7 @@ YOLO_data/
     │   ├── train/       # Folder label untuk training (format .txt)
     │   └── val/         # Folder label untuk validation (format .txt)
     └── data.yaml        # File YAML untuk konfigurasi YOLO
+
+Cara untuk training:
+1. cd yolov5
+2. python train.py --img 640 --batch 16 --epochs 50 --data ../data.yaml --weights yolov5s.pt --device 0
