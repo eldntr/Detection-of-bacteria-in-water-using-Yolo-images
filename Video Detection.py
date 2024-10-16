@@ -1,46 +1,44 @@
-import torch
+# Cara Menjalankan:
+# pastikan udah install ultralytics dan model yolo yang udah di train (yolo11n.pt/yolo8n.py)
+
 import cv2
-from pathlib import Path
+from ultralytics import YOLO
 
-# Load model
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp3/weights/best.pt')
+# 1. Muat model YOLOv8 yang telah dilatih
+model = YOLO('yolo11n.pt')
 
-# Path to video
+# 2. Buka video input
 video_path = 'Microorganism.mp4'
-
-# Open video file
 cap = cv2.VideoCapture(video_path)
 
-# Get video properties
-width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-fps = int(cap.get(cv2.CAP_PROP_FPS))
-
-# Define codec and create VideoWriter object
-output_path = 'output_video_exp3.mp4'
+# 3. Definisikan writer untuk menyimpan hasil video
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+out = cv2.VideoWriter('output_video.mp4', fourcc, 30.0, (int(cap.get(3)), int(cap.get(4))))
 
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
 
-    # Perform detection
+    # 4. Deteksi objek di setiap frame
     results = model(frame)
 
-    # Render results
-    results.render()
+    # 5. Gambarkan kotak pembatas dan label pada frame
+    for result in results:
+        for box in result.boxes.data:
+            x1, y1, x2, y2, conf, cls = box
+            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
 
-    # Write frame to output video
+            # Gambarkan kotak pembatas
+            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+
+            # Tambahkan label kelas dan confidence score
+            label = f'{model.names[int(cls)]}: {conf:.2f}'
+            cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+    # Simpan frame yang telah diproses ke dalam video output
     out.write(frame)
 
-    # Display frame (optional, commented out)
-    # cv2.imshow('Frame', frame)
-    # if cv2.waitKey(1) & 0xFF == ord('q'):
-    #     break
-
-# Release resources
+# 6. Tutup semua stream setelah selesai
 cap.release()
 out.release()
-# cv2.destroyAllWindows()  # Not needed since we are not using imshow
