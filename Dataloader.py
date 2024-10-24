@@ -14,7 +14,7 @@ output_dir = "temp/"
 sample_output_dir = "sample_output/"
 train_val_split = 0.8  # Rasio data train/validation
 
-# Hapus folder output jika sudah ada, lalu buat ulang folder output yang fresh
+# Remove output directory if it exists and create fresh output folders
 if os.path.exists(output_dir):
     shutil.rmtree(output_dir)
 
@@ -34,11 +34,11 @@ os.makedirs(sample_output_dir, exist_ok=True)
 image_files = [f for f in os.listdir(images_dir) if f.endswith('.png')]
 label_files = [f.replace('.png', '.xml') for f in image_files]
 
-# Shuffle untuk memastikan randomisasi
+# Shuffle data for randomness
 data = list(zip(image_files, label_files))
 random.shuffle(data)
 
-# Split data untuk train dan validation
+# Split data into training and validation sets
 split_index = int(train_val_split * len(data))
 train_data = data[:split_index]
 val_data = data[split_index:]
