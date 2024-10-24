@@ -1,0 +1,54 @@
+Folder Name,Class Name,Harmful
+G001,Oscillatoria,1
+G002,Ankistrodesmus,0
+G003,Microcystis,1
+G004,Gomphonema,0
+G005,Sphaerocystis,0
+G006,Cosmarium,0
+G007,Cocconeis,0
+G008,Tribonema,0
+G009,Chlorella,0
+G010,Tetraedron,0
+G011,Ankistrodesmus,0
+G012,Brachionus,0
+G013,Chaenea,0
+G014,Pediastrum,1
+G015,Spirulina,0
+G016,Actinastrum,0
+G017,Navicula,0
+G018,Scenedesmus,0
+G019,Golenkinia,0
+G020,Pinnularia,0
+G021,Staurastrum,1
+G022,Phormidium,1
+G023,Fragilaria,1
+G024,Anabaenopsis,1
+G025,Coelosphaerium,1
+G026,Crucigenia,0
+G027,Achnanthes,0
+G028,Synedra,0
+G029,Ceratium,0
+G030,Pompholyx,0
+G031,Merismopedia,1
+G032,Spirogyra,0
+G033,Coelastrum,0
+G034,Raphidiopsis,1
+G035,Gomphosphaeria,1
+G036,Euglena,1
+G037,Euclanis,0
+G038,Keratella,0
+G039,diversicornis,0
+G040,Surirella,0
+G041,Characium,0
+G042,Campylobacter,1
+G043,Enteropathogenic,1
+G044,Salmonella typhi,1
+G045,Salmonella,1
+G046,Shigella,1
+G047,Legionella,1
+G048,Vibrio vulnificus,1
+G049,Cryptosporidium,1
+G050,Giardia lamblia,1
+G051,Hepatitis A,1
+G052,Calicivirus,1
+G053,Enterovirus ,1

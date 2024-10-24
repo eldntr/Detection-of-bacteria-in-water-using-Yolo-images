@@ -1,46 +1,41 @@
-import torch
 import cv2
-from pathlib import Path
+import numpy as np
 
-# Load model
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp3/weights/best.pt')
-
-# Path to video
+# 1. Buka video input
 video_path = 'Microorganism.mp4'
-
-# Open video file
 cap = cv2.VideoCapture(video_path)
 
-# Get video properties
-width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-fps = int(cap.get(cv2.CAP_PROP_FPS))
-
-# Define codec and create VideoWriter object
-output_path = 'output_video_exp3.mp4'
+# 2. Definisikan writer untuk menyimpan hasil video
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+out = cv2.VideoWriter('output_combined.mp4', fourcc, 30.0, (int(cap.get(3)) * 2, int(cap.get(4))))
+
+def process_image(image):
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # Konversi ke grayscale
+
+    # Background Subtraction dengan Adaptive Thresholding
+    image_bg_subtracted = cv2.adaptiveThreshold(
+        image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
+        cv2.THRESH_BINARY, 11, 2)
+
+    # Konversi kembali ke RGB untuk menggambar bounding box berwarna
+    image_rgb = cv2.cvtColor(image_bg_subtracted, cv2.COLOR_GRAY2RGB)
+
+    return image_rgb
 
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
 
-    # Perform detection
-    results = model(frame)
+    # 3. Preprocessing frame
+    processed_frame = process_image(frame)
 
-    # Render results
-    results.render()
+    # 4. Gabungkan frame asli dan frame yang telah diproses secara horizontal
+    combined_frame = np.hstack((frame, processed_frame))
 
-    # Write frame to output video
-    out.write(frame)
+    # 5. Simpan frame yang telah digabungkan ke dalam video output
+    out.write(combined_frame)
 
-    # Display frame (optional, commented out)
-    # cv2.imshow('Frame', frame)
-    # if cv2.waitKey(1) & 0xFF == ord('q'):
-    #     break
-
-# Release resources
+# 6. Tutup semua stream setelah selesai
 cap.release()
 out.release()
-# cv2.destroyAllWindows()  # Not needed since we are not using imshow

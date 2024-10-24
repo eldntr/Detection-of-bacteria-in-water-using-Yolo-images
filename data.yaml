@@ -1,6 +1,6 @@
 # Train and val data paths
-train: C:\Code\Machine Learning - Workspace\Computer Vision\Water Bacterial Detection\YOLO_data\images\train  # Path to training images
-val: C:\Code\Machine Learning - Workspace\Computer Vision\Water Bacterial Detection\YOLO_data\images\val      # Path to validation images
+train: C:\Code\Machine Learning - Workspace\Computer Vision\Water Bacterial Detection\temp\images\train  # Path to training images
+val: C:\Code\Machine Learning - Workspace\Computer Vision\Water Bacterial Detection\temp\images\val      # Path to validation images
 
 # Number of classes
 nc: 53  # Number of classes (sesuaikan dengan jumlah kelas Anda)
