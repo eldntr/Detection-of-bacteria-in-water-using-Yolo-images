@@ -1,16 +1,24 @@
 # Train and val data paths
-train: ../YOLO_data/images/train  # Path to training images
-val: ../YOLO_data/images/val      # Path to validation images
+train: C:\Code\Machine Learning - Workspace\Computer Vision\Water Bacterial Detection\YOLO_data\images\train  # Path to training images
+val: C:\Code\Machine Learning - Workspace\Computer Vision\Water Bacterial Detection\YOLO_data\images\val      # Path to validation images
 
 # Number of classes
 nc: 53  # Number of classes (sesuaikan dengan jumlah kelas Anda)
 
 # Class names
 names: [
-    'G001', 'G002', 'G003', 'G004', 'G005', 'G006', 'G007', 'G008', 'G009', 'G010',
-    'G011', 'G012', 'G013', 'G014', 'G015', 'G016', 'G017', 'G018', 'G019', 'G020',
-    'G021', 'G022', 'G023', 'G024', 'G025', 'G026', 'G027', 'G028', 'G029', 'G030',
-    'G031', 'G032', 'G033', 'G034', 'G035', 'G036', 'G037', 'G038', 'G039', 'G040',
-    'G041', 'G042', 'G043', 'G044', 'G045', 'G046', 'G047', 'G048', 'G049', 'G050',
-    'G051', 'G052', 'G053'
+    'Oscillatoria', 'Ankistrodesmus', 'Microcystis', 'Gomphonema', 
+    'Sphaerocystis', 'Cosmarium', 'Cocconeis', 'Tribonema', 
+    'Chlorella', 'Tetraedron', 'Ankistrodesmus', 'Brachionus', 
+    'Chaenea', 'Pediastrum', 'Spirulina', 'Actinastrum', 
+    'Navicula', 'Scenedesmus', 'Golenkinia', 'Pinnularia', 
+    'Staurastrum', 'Phormidium', 'Fragilaria', 'Anabaenopsis', 
+    'Coelosphaerium', 'Crucigenia', 'Achnanthes', 'Synedra', 
+    'Ceratium', 'Pompholyx', 'Merismopedia', 'Spirogyra', 
+    'Coelastrum', 'Raphidiopsis', 'Gomphosphaeria', 'Euglena', 
+    'Euclanis', 'Keratella', 'diversicornis', 'Surirella', 
+    'Characium', 'Campylobacter', 'Enteropathogenic', 
+    'Salmonella typhi', 'Salmonella', 'Shigella', 'Legionella', 
+    'Vibrio vulnificus', 'Cryptosporidium', 'Giardia lamblia', 
+    'Hepatitis A', 'Calicivirus', 'Enterovirus'
 ]
