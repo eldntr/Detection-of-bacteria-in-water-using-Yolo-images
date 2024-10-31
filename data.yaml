@@ -3,7 +3,7 @@ train: C:\Code\Machine Learning - Workspace\Computer Vision\Water Bacterial Dete
 val: C:\Code\Machine Learning - Workspace\Computer Vision\Water Bacterial Detection\temp\images\val      # Path to validation images
 
 # Number of classes
-nc: 53  # Number of classes (sesuaikan dengan jumlah kelas Anda)
+nc: 41  # Number of classes (sesuaikan dengan jumlah kelas Anda)
 
 # Class names
 names: [
@@ -17,8 +17,7 @@ names: [
     'Ceratium', 'Pompholyx', 'Merismopedia', 'Spirogyra', 
     'Coelastrum', 'Raphidiopsis', 'Gomphosphaeria', 'Euglena', 
     'Euclanis', 'Keratella', 'diversicornis', 'Surirella', 
-    'Characium', 'Campylobacter', 'Enteropathogenic', 
-    'Salmonella typhi', 'Salmonella', 'Shigella', 'Legionella', 
-    'Vibrio vulnificus', 'Cryptosporidium', 'Giardia lamblia', 
-    'Hepatitis A', 'Calicivirus', 'Enterovirus'
+    'Characium'
 ]
+
+class_weights: [0.04575163398692811, 0.1794871794871795, 0.010339734121122601, 0.0823529411764706, 0.1794871794871795, 0.33333333333333337, 0.5, 0.09333333333333334, 0.05737704918032788, 0.15909090909090912, 0.10294117647058824, 0.06194690265486726, 0.6363636363636365, 0.0823529411764706, 0.11290322580645161, 0.05035971223021583, 0.09859154929577466, 0.0625, 0.030837004405286344, 0.28, 1.0, 0.007352941176470589, 0.15555555555555556, 0.25, 0.05384615384615385, 0.5833333333333334, 0.5, 0.042682926829268296, 0.33333333333333337, 0.16666666666666669, 0.21875000000000003, 0.05932203389830509, 0.2916666666666667, 0.46666666666666673, 0.12962962962962965, 0.10447761194029852, 0.7777777777777778, 0.11666666666666668, 0.08536585365853659, 0.23333333333333336, 0.368421052631579]
